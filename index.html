@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<title>Cafe con Libros</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="There's dreamers in all of us.Twenty years ago, two young Latina educators opened a bookstore to reflect the multicultural community of Southern California that was not captured in the educational system that they were brought up in">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+    font-size:17px;
+}
+
+#loader {
+    z-index: 99999;
+    background: rgba(255, 255, 255, 1);
+    position: absolute;
+    margin: auto;
+    top: -20px;
+    right: 0;
+    bottom: 0;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#moreGallery {
+  display: none;
+}
+
+#mission {
+  display: none;
+}
+
+.w3-nav-color, .w3-nav-color:hover {
+    color: #fff!important;
+    background-color: #ef8c6a!important;
+}
+.w3-content {
+    max-width: 1200px;
+    margin: auto;
+}
+.w3-dark-grey, .w3-hover-dark-grey:hover, .w3-dark-gray, .w3-hover-dark-gray:hover {
+    color: #fff!important;
+    background-color: #7a7a7a!important;
+}
+.logo {
+  position: relative;
+  width: 100%;
+  top:-150px;
+}
+.banner-text {
+  margin: auto;
+  margin-top:100px;
+  width: 700px;
+  text-align: center;
+  font-size: 24px;
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3, footer {
+    background-attachment: fixed;
+    background-position: center 70%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('./images/cup_and_shelves.jpg');
+    min-height: 100%;
+}
+
+/* Second image (Gallery) */
+.bgimg-2 {
+    background-image: url("./images/gallery.jpg");
+    min-height: 450px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+  background-image: url("./images/contact.jpg");
+    min-height: 450px;
+}
+
+footer {
+  background-image: url("./images/footer.jpg");
+  min-height: 350px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+.w3-bar {
+  background: rgba(0,0,0,0.2);
+  width: 100%;
+  overflow: hidden;
+  color: white;
+  font-weight: bolder;
+}
+
+.w3-bar > a {
+  background: none;
+}
+
+.w3-opacity, .w3-hover-opacity:hover {
+    opacity: 0.80;
+}
+.social-media-links {
+  font-size: 26px;
+  padding: 0 20px!important;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+        min-height: 44%;
+    }
+    .logo {
+      width: 300px;
+      top: -50px;
+      position: relative;
+    }
+    .banner-text {
+      width: 100%;
+      display: none;
+    }
+    #mission {
+      display: block;
+    }
+    .w3-row-padding>.w3-col {
+      padding: 8px 8px;
+    }
+}
+
+</style>
+<body style="overflow:hidden">
+<div id="loader">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <img class="logo" src="./images/logo_brown.png" alt="Cafe Con Libros" style="top:-50px;"/>
+    <br>
+    <img src="./images/loader.gif" width="150" alt="Loading" />
+  </div>
+  <span>
+
+  </span>
+</div>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button w3-hide-large">Café con Libros</a>
+    <a href="#home" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-home"></i>  Home</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>  About</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>  Gallery</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i>  Contact</a>
+    <a href="https://www.instagram.com/cafeconlibrospress/" class="w3-bar-item w3-button w3-hide-small social-media-links w3-right w3-hover-grey">
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+    </a>
+    <a href="https://www.facebook.com/cafeconlibrospress/" class="w3-bar-item w3-button w3-hide-small social-media-links w3-right w3-hover-grey">
+      <i class="fa fa-facebook w3-hover-opacity"></i>
+    </a>
+    <span href="#" class="w3-bar-item w3-hide-small w3-right" >
+      Follow Us
+    </span>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">GALLERY</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+  </div>
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity">
+      <img class="logo" src="./images/logo_white.png" alt="Cafe Con Libros"/>
+    </span>
+  </div>
+  <div class="w3-display-middle" style="">
+    <p style="color:#fff;" class="banner-text">
+      <i>As part of the community, our mission is to provide a space for everyone to embrace art, literature, cultural expression; in all its forms, to enlighten the future of our community. </i>
+    </p>
+  </div>
+</div>
+
+<div class="w3-content w3-container w3-padding-64" id="mission">
+  <h3 class="w3-center">OUR MISSION</h3>
+  <div class="w3-col m6 w3-padding-large">
+    <p align ="justify">
+      <i>As part of the community, our mission is to provide a space for everyone to embrace art, literature, cultural expression; in all its forms, to enlighten the future of our community. </i>
+    </p>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">ABOUT US</h3>
+  <p class="w3-center"><em>We are all dreamers</em></p>
+  <div class="w3-row">
+    <div class="w3-col m6 w3-center w3-padding-large">
+      <p><b></b></p><br>
+      <img src="./images/wide-angle-inside-shot.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off"  width="500" height="333">
+    </div>
+
+    <!-- Hide this text on small devices -->
+    <div class="w3-col m6 w3-padding-large">
+      <p>
+        There's dreamers in all of us. Twenty years ago, two young Latina educators opened a bookstore to reflect the multicultural community of Southern California that was not captured in the educational system that they were brought up in.
+        <br><br>
+        The focus of the bookstore reflected their experiences as women of color, first generation college grads, and immigrant advocates. This was the dream, this was the service they to brought to their community: a bookstore that celebrated the stories and traditions from people of color.
+        <br><br>
+        These dreamers, Adelaida Bautista and Patricia DeRobles, plus a core group of supporters have brought Cafe con Libros Press back to downtown Pomona. The new CCL is a non-profit organization focused on Arts, Literature and Culture.
+        <br><br>
+        Keep dreaming and hold on to what matters most, we'll keep fighting for those that do.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span style="font-size:54px;" class="w3-text-white w3-wide">GALLERY</span>
+  </div>
+</div>
+
+<!-- Container (Gallery Section) -->
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div class="w3-row-padding w3-center">
+    <div class="w3-col m3">
+      <img src="./images/g1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./images/g2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./images/g3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./images/g4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-section">
+    <div class="w3-col m3">
+      <img src="./images/g5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./images/g6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./images/g7.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./images/g8.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+  </div>
+
+  <div id="moreGallery" class="w3-row-padding w3-center w3-section">
+    <div class="w3-col m3">
+      <img src="./images/g9.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./images/g10.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./images/g11.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./images/g12.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
+    </div>
+  </div>
+  <div class="w3-row-padding w3-center w3-section">
+    <button id="loadMore" class="w3-button w3-padding-large" style="margin-top:64px;background-color:#ef8c6a;color:#fff;">SHOW MORE</button>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle overlay" >
+  </div>
+  <div class="w3-display-middle">
+    <span style="font-size:54px;" class="w3-text-white w3-wide">CONTACT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">WHERE YOU CAN FIND US</h3>
+  <p class="w3-center"><em>Visit us today!</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+      <!-- Add Google Maps -->
+      <div id="googleMap" class="w3-round-large" style="width:100%;height:400px;"></div>
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> 280 W 2nd St, Pomona, CA 91766<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: (909) 469-1350<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: cafeconlibrospress@gmail.com<br>
+      </div>
+      <form action="/action_page.php" target="_blank">
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+          </div>
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+          </div>
+        </div>
+        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+        <button class="w3-button w3-right w3-section" type="submit" style ="background:#ef8c6a!important;color:white">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-display-container w3-padding-64 w3-opacity-min">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity">
+      <img src="./images/logo_white.png" alt="Cafe Con Libros"/ style="width:100%">
+    </span>
+  </div>
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+</footer>
+
+<script>
+window.onload = function () {
+  document.getElementsByTagName("BODY")[0].style.overflow = "unset"
+  $("#loader").fadeOut();
+  // $("#site-wrapper").fadeIn();
+}
+
+$(document).ready(function(){
+    google.maps.event.addDomListener(window, 'load', myMap);
+
+    $("#loadMore").click(function(){
+        $("#moreGallery").slideToggle("slow");
+        var x = document.getElementsByTagName("loadMore")[0].textContent;
+        if(x==="SHOW MORE") {
+          document.getElementsByTagName("loadMore")[0].textContent = "SHOW LESS"
+        } else {
+          document.getElementsByTagName("loadMore")[0].textContent = "SHOW MORE"
+        }
+
+    });
+});
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+<!-- Add Google Maps -->
+<script>
+function myMap()
+{
+  myCenter=new google.maps.LatLng(34.058681, -117.751963);
+  var mapOptions= {
+    center: {
+        lat: 34.058681,
+        lng: -117.751963
+    },
+    zoom: 15,
+    mapTypeControl: true,
+    streetViewControl: true,
+    overviewMapControl: true,
+    rotateControl: true,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: myCenter,
+      animation: google.maps.Animation.BOUNCE
+  });
+  marker.setMap(map);
+  var infowindow = new google.maps.InfoWindow({
+      content: "Cafe Con Libros"
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map, marker);
+  });
+  marker.setMap(map);
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-nav-color";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-nav-color", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+<script src="http://maps.googleapis.com/maps/api/js" defer="defer"></script>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
+</body>
+</html>
